@@ -9,7 +9,8 @@
  #define SOS_SYSCALL_H
 
 enum{
-    SYS_module_return = 5
+    SYS_nsc_call_module=4,
+    SYS_module_return 
 
 };
 

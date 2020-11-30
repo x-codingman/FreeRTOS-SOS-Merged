@@ -34,3 +34,7 @@ syscall(uint8_t num,uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4){
 void syscall_return(int ret){
 	syscall(SYS_module_return,ret,3,4,9);
 }
+
+void syscall_nsc_call_module(uint32_t module_id,uint32_t command_id,uint32_t *operation){
+	syscall(SYS_nsc_call_module, module_id, command_id, operation, 0);
+}

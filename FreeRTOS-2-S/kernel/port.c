@@ -11,6 +11,7 @@
 #include "inc/syscall.h"
 #include "sos_portasm.h"
 #include "inc/types.h"
+#include "inc/manager.h"
 
 extern struct CallModuleFrame* call_moudle_frame_head;
 void sos_return(struct CallModuleFrame* index)__attribute__((naked));
@@ -20,10 +21,15 @@ void vPortSVCHandler_C( uint32_t *pulCallerStackAddress ) /* PRIVILEGED_FUNCTION
 uint8_t ucSVCNumber;
 uint32_t ulPC;
 
-	/* Register are stored on the stack in the following order - R0, R1, R2, R3,
-	 * R12, LR, PC, xPSR. */
+	 /* Register are stored on the stack in the following order - R0, R1, R2, R3,
+     * R12, LR, PC, xPSR. */
 	ulPC = pulCallerStackAddress[ 6 ];
 	ucSVCNumber = ( ( uint8_t *) ulPC )[ -2 ];
+
+	uint32_t a1 = pulCallerStackAddress[7];
+	uint32_t a2 = pulCallerStackAddress[8];
+	uint32_t a3 = pulCallerStackAddress[9];
+	uint32_t a4 = pulCallerStackAddress[10];
 
 	switch( ucSVCNumber )
 	{
@@ -62,6 +68,11 @@ uint32_t ulPC;
 				index=index->next;
 			}
 		
+		}
+
+		case SYS_nsc_call_module:
+		{
+			return SOS_invoke_command((SOS_ModuleID_t)a1, (uint32_t)a2, (SOS_Operation_t *) a3));
 		}
 
 		
