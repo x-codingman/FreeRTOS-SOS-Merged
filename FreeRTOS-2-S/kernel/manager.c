@@ -37,8 +37,6 @@ static uint32_t call_ID=13;                                 // this is used to g
                         
 
 void init_stack(){
-	
-
     kernel_stack_pointer=(StackType_t*) kernel_stack;
 }
 
@@ -56,7 +54,7 @@ SOS_Result_t SOS_invoke_command(
     //TODO:wait to implemented
     //check_paramaters(operation);
     
-    //Look up the module
+    // Look up the module
     int i=0;
     for(;i<modules_index;i++){
         if(modules[i].module_id==module_id){
@@ -109,24 +107,27 @@ SOS_Result_t SOS_invoke_command(
 					::"r"(cur_call_moudle_frame)
 					:"memory"
 			);
-			
+		
+	
+
 			// Store call_ID
-		    __asm volatile(
-			"   push {r0-r1}									\n"
-			"	mov r1,	%1										\n"
-			"	mov r0, %0										\n"
-		    "	sub r0, r0, #4									\n"
-		    "	stmia r0!, {r1}									\n"
-		    "	sub r0, r0, #4									\n"
-		    "	msr psp, r0										\n"
-			"	pop {r0-r1}										\n"
-		    ::"r"(module_stack),"r"(cur_call_moudle_frame->cur_call_ID)
-			: "memory"
-		    );
+			// Set the module_stack to psp 
+		    // __asm volatile(
+			// "   push {r0-r1}									\n"
+			// "	mov r1,	%1										\n"
+			// "	mov r0, %0										\n"
+		    // "	sub r0, r0, #4									\n"
+		    // "	stmia r0!, {r1}									\n"
+		    // "	sub r0, r0, #4									\n"
+		    // "	msr psp, r0										\n"
+			// "	pop {r0-r1}										\n"
+		    // ::"r"(module_stack),"r"(cur_call_moudle_frame->cur_call_ID)
+			// : "memory"
+		    // );
 		   
 			// Call the module entry
 			// This function will not return.
-			call_module( command_id,operation,modules[i].module_entry);
+			call_module( command_id,operation,&modules[i]);
 			
 			// The sys_call_return_label is used for the syscall to return to the kernel.
 			__asm volatile
@@ -174,23 +175,53 @@ SOS_Result_t add_module(SOS_ModuleEntry_t module_enrty,SOS_ModuleID_t module_id,
 }
 
  
+//
+// Set up the exception stack frame and call the secure module.
+// This function switch to the thread mode from handler mode by svc return.
+// 
 
  
+ 
+void call_module( uint32_t command_id, 
+    SOS_Operation_t *operation,Module_t* module, StackType_t *module_stack){	
 
- 
- 
- void call_module( uint32_t command_id, 
-    SOS_Operation_t *operation,Module_t* module_entry){	
+		//Store the call_ID on the top of module stack.
+		module_stack--;
+		*module_stack = call_ID-1;	
+
+		// Set up the exception stack frame.
+		module_stack--;
+		*module_stack = INITIAL_XPSR;			
+		module_stack--;
+		*module_stack = module->module_entry;
+		module_stack--;
+		*module_stack = MODULE_RETURN_ADDRESS;	// LR
+		module_stack--;
+		*module_stack = 0;						// r12
+		module_stack--;
+		*module_stack = 0;						// r3
+		module_stack--;
+		*module_stack = module->module_entry;			// r2
+		module_stack--;
+		*module_stack = operation;				//r1
+		module_stack--;
+		*module_stack = command_id;				//r0
+
+
+
 		__asm volatile(
-		  	  
-		  "	mrs r5, control									\n"
-		  "	mov r4, #0x3									\n"
-		  "	orr r5, r5, r4									\n"
-		  "	msr control, r5									\n"
-		  "	dsb                                             \n"
+		  " mov r5, %0										\n"
+		  " msr psp, r5										\n" // Set the psp register for the secure module
+		  "	mov r5, %1										\n"
+		  " mov lr, r5										\n"	// Set the EXC_RETURN for the LR register.
+		  "	mrs r5, control									\n" // Move the conrtol register to r5
+		  "	mov r4, #0x3									\n" // Set the privilege bit and the stack_switch bit of control
+		  "	orr r5, r5, r4									\n"	// Xor r5 with r4
+		  "	msr control, r5									\n" // update the control value
+		  "	dsb                                             \n" // Data flush
 		  "	isb												\n"
-		  "	bx r2											\n"
-		  ::
+		  "	bx lr											\n"
+		  ::"r"(module_stack), "r"(INITIAL_EXC_RETURN)
 		  : "r4", "r5", "memory"
       );
 }

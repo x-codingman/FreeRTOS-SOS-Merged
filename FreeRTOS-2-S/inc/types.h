@@ -18,7 +18,7 @@
 
 typedef int SOS_Result_t;
 
-typedef uint8_t  StackType_t;
+typedef uint32_t  StackType_t;
 
 struct PushRegs{
     uint32_t r0;
