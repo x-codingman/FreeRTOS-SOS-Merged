@@ -9,7 +9,7 @@ kernel/port.d kernel/port.o: ../kernel/port.c ../kernel/sos_port.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
  ../inc/SecureOSConfig.h ../inc/syscall.h ../kernel/sos_portasm.h \
- ../inc/types.h
+ ../inc/types.h ../inc/manager.h ../inc/module.h ../inc/types.h
 
 ../kernel/sos_port.h:
 
@@ -36,5 +36,11 @@ d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_
 ../inc/syscall.h:
 
 ../kernel/sos_portasm.h:
+
+../inc/types.h:
+
+../inc/manager.h:
+
+../inc/module.h:
 
 ../inc/types.h:

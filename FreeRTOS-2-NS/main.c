@@ -88,7 +88,7 @@ void vTask2( void *pvParameters ){
 
 
 void vTask1( void *pvParameters ){
-	portALLOCATE_SECURE_CONTEXT( configMINIMAL_SECURE_STACK_SIZE );
+	//portALLOCATE_SECURE_CONTEXT( configMINIMAL_SECURE_STACK_SIZE );
 	const char* str="hello,lm task1\r\n";
 	uint32_t reuslt;
 	uint32_t test_module_id=0x1234;

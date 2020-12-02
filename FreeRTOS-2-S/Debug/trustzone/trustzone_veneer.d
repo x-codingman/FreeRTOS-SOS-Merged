@@ -127,7 +127,7 @@ trustzone/trustzone_veneer.d trustzone/trustzone_veneer.o: \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
  ../stdio_redirect/stdio_io.h ../trustzone/trustzone_veneer.h \
  ../secure_context.h ../../FreeRTOS-2-NS/Config/FreeRTOSConfig.h \
- ../secure_heap.h \
+ ../inc/syscall.h ../secure_heap.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
@@ -452,6 +452,8 @@ d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\s
 ../secure_context.h:
 
 ../../FreeRTOS-2-NS/Config/FreeRTOSConfig.h:
+
+../inc/syscall.h:
 
 ../secure_heap.h:
 

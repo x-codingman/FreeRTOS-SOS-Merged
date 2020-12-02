@@ -60,9 +60,9 @@ kernel\memory.c
 
 kernel\module.c
 
-kernel\port.c
+kernel\sos_port.c
 
-kernel\portasm.c
+kernel\sos_portasm.c
 
 kernel\syscall.c
 

@@ -32,6 +32,12 @@ syscall(uint8_t num,uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4){
 }
 
 void syscall_return(int ret){
+	__asm volatile
+	(
+		"	push {r0}											\n"
+		"	mov r0, #0x0										\n"
+		"	msr ipsr, r0										\n"
+	);
 	syscall(SYS_module_return,ret,3,4,9);
 }
 

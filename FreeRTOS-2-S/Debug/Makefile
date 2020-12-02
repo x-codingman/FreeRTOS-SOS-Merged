@@ -94,8 +94,8 @@ C_SRCS +=  \
 ../kernel/manager.c \
 ../kernel/memory.c \
 ../kernel/module.c \
-../kernel/port.c \
-../kernel/portasm.c \
+../kernel/sos_port.c \
+../kernel/sos_portasm.c \
 ../kernel/syscall.c \
 ../kernel/test_module.c \
 ../main.c \
@@ -146,8 +146,8 @@ kernel/init.o \
 kernel/manager.o \
 kernel/memory.o \
 kernel/module.o \
-kernel/port.o \
-kernel/portasm.o \
+kernel/sos_port.o \
+kernel/sos_portasm.o \
 kernel/syscall.o \
 kernel/test_module.o \
 main.o \
@@ -191,8 +191,8 @@ kernel/init.o \
 kernel/manager.o \
 kernel/memory.o \
 kernel/module.o \
-kernel/port.o \
-kernel/portasm.o \
+kernel/sos_port.o \
+kernel/sos_portasm.o \
 kernel/syscall.o \
 kernel/test_module.o \
 main.o \
@@ -236,8 +236,8 @@ kernel/init.d \
 kernel/manager.d \
 kernel/memory.d \
 kernel/module.d \
-kernel/port.d \
-kernel/portasm.d \
+kernel/sos_port.d \
+kernel/sos_portasm.d \
 kernel/syscall.d \
 kernel/test_module.d \
 main.d \
@@ -281,8 +281,8 @@ kernel/init.d \
 kernel/manager.d \
 kernel/memory.d \
 kernel/module.d \
-kernel/port.d \
-kernel/portasm.d \
+kernel/sos_port.d \
+kernel/sos_portasm.d \
 kernel/syscall.d \
 kernel/test_module.d \
 main.d \
@@ -515,14 +515,14 @@ kernel/module.o: ../kernel/module.c
 	@echo Finished building: $<
 	
 
-kernel/port.o: ../kernel/port.c
+kernel/sos_port.o: ../kernel/sos_port.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)D:\Atmel Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAML11E16A__ -DDEBUG  -I"D:\Atmel Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/crya" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../trustzone" -I"../stdio_redirect" -I"D:\Atmel Studio\7.0\Packs\atmel\SAML11_DFP\1.0.109\include" -I"../../FreeRTOS-2-NS/Config" -I".." -I"../inc"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m23 -c -std=gnu99 -mcmse -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-kernel/portasm.o: ../kernel/portasm.c
+kernel/sos_portasm.o: ../kernel/sos_portasm.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)D:\Atmel Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAML11E16A__ -DDEBUG  -I"D:\Atmel Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"../Config" -I".." -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/crya" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/sercom" -I"../hri" -I"../trustzone" -I"../stdio_redirect" -I"D:\Atmel Studio\7.0\Packs\atmel\SAML11_DFP\1.0.109\include" -I"../../FreeRTOS-2-NS/Config" -I".." -I"../inc"  -O1 -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m23 -c -std=gnu99 -mcmse -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

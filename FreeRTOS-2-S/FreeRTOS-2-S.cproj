@@ -190,8 +190,7 @@
       <ToolOptions>
         <InterfaceProperties>
         </InterfaceProperties>
-        <InterfaceName>
-        </InterfaceName>
+        <InterfaceName>SWD</InterfaceName>
       </ToolOptions>
       <ToolType>custom</ToolType>
       <ToolNumber>
@@ -808,13 +807,13 @@
     <Compile Include="kernel\module.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="kernel\port.c">
+    <Compile Include="kernel\sos_port.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="kernel\sos_port.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="kernel\portasm.c">
+    <Compile Include="kernel\sos_portasm.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="kernel\sos_portasm.h">

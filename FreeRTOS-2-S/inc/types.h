@@ -41,6 +41,7 @@ struct Trapframe {
     uint32_t control;
 	uint32_t module_return_address;
     uint32_t lr;
+	uint32_t xPSR;
 	
 }__attribute__((packed));
 

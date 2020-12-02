@@ -37,6 +37,7 @@
 #include <compiler.h>
 #include <secure_context.h>
 
+
 /* ======== Non-secure callable functions for Getting Started Example ======== */
 
 /**

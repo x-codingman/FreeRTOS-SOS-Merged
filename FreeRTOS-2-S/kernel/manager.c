@@ -81,7 +81,7 @@ SOS_Result_t SOS_invoke_command(
 
            
            module_stack = memory_alloc(SOS_MODULE_STACK_SIZE);
-		   module_stack+=(SOS_MODULE_STACK_SIZE-1);
+		   module_stack+=(SOS_MODULE_STACK_SIZE);
 		   cur_call_moudle_frame->module_stack=module_stack;
 		   
            // save the context of kernel 
@@ -103,6 +103,8 @@ SOS_Result_t SOS_invoke_command(
 				  "	  ldr r2, =sys_call_return_label				\n" // r2 = sys_call_return. 
 				  "	  mov r4,	lr									\n"	// r4 = lr
 				  "	  stmia r3!, {r0-r2,r4}							\n" /* Store MSP, CONTROL ,module_return_address and LR on the stack. */
+				  "   mrs r0, ipsr									\n" // r0 = xPSR
+				  "   stmia r3!, {r0}								\n" // store the xPSR register
 				  "	  pop {r0-r4}									\n"	// restore r0-r4
 					::"r"(cur_call_moudle_frame)
 					:"memory"
@@ -179,7 +181,8 @@ SOS_Result_t add_module(SOS_ModuleEntry_t module_enrty,SOS_ModuleID_t module_id,
  
  void call_module( uint32_t command_id, 
     SOS_Operation_t *operation,Module_t* module_entry){	
-		__asm volatile(	  
+		__asm volatile(
+		  	  
 		  "	mrs r5, control									\n"
 		  "	mov r4, #0x3									\n"
 		  "	orr r5, r5, r4									\n"

@@ -34,6 +34,7 @@
 #include "atmel_start.h"
 #include "trustzone_veneer.h"
 #include "trustzone_config.h"
+#include "inc/syscall.h"
 
 
 /* Secure heap includes. */
@@ -238,7 +239,7 @@ uint32_t module_id,
 uint32_t command_id,
 uint32_t *operation
 ){
-	return SOS_invoke_command((uint32_t) module_id,(uint32_t) command_id,(SOS_Operation_t*)(&operation));
+	return syscall_nsc_call_module((uint32_t) module_id,(uint32_t) command_id,(SOS_Operation_t*)(&operation));
 }
 
 
