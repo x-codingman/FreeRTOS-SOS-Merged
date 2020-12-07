@@ -56,7 +56,7 @@ void raise_privilege( void ) /* __attribute__ (( naked )) PRIVILEGED_FUNCTION */
 void SVCall_Handler( void ) /* __attribute__ (( naked )) PRIVILEGED_FUNCTION */
 {
 	__asm volatile
-	(
+	(	
 	"	movs r0, #4										\n"
 	"	mov r1, lr										\n"
 	"	tst r0, r1										\n"

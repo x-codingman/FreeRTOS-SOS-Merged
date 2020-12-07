@@ -24,14 +24,18 @@ SOS_Result_t invoke_entry(
     {
         case CMD_PING:
         {
-            
+            printf("l m test module of ping\r\n");
             break;
 
         }
-
+		case CMD_PONG:
+		{
+			 printf("l m test module of pong\r\n");
+			 break;
+		}
         default:
         {
-            return SOS_ERROR_NOT_IMPLEMENTED;
+            break;
         }
             
     }

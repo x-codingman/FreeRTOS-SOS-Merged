@@ -6105,7 +6105,7 @@ LOAD d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none
                 0x00000400                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x400
                 0x00000200                HEAP_SIZE = DEFINED (HEAP_SIZE)?HEAP_SIZE:DEFINED (__heap_size__)?__heap_size__:0x200
 
-.text           0x00008000     0x125c
+.text           0x00008000     0x12a0
                 0x00008000                . = ALIGN (0x4)
                 0x00008000                _sfixed = .
  *(.vectors .vectors.*)
@@ -6201,186 +6201,187 @@ LOAD d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none
  .text.uxListRemove
                 0x000084ce       0x28 list.o
                 0x000084ce                uxListRemove
- .text.vTask1   0x000084f6       0x3a main.o
- .text.main     0x00008530       0x50 main.o
-                0x00008530                main
+ .text.vTask2   0x000084f6       0x34 main.o
+ .text.vTask1   0x0000852a       0x34 main.o
+ .text.main     0x0000855e       0x6e main.o
+                0x0000855e                main
  .text.vApplicationStackOverflowHook
-                0x00008580        0x8 main.o
-                0x00008580                vApplicationStackOverflowHook
+                0x000085cc        0x8 main.o
+                0x000085cc                vApplicationStackOverflowHook
  .text.vApplicationGetIdleTaskMemory
-                0x00008588       0x14 main.o
-                0x00008588                vApplicationGetIdleTaskMemory
+                0x000085d4       0x14 main.o
+                0x000085d4                vApplicationGetIdleTaskMemory
  .text.prvTaskExitError
-                0x0000859c       0x24 port.o
+                0x000085e8       0x24 port.o
  .text.vPortSetupTimerInterrupt
-                0x000085c0       0x38 port.o
-                0x000085c0                vPortSetupTimerInterrupt
+                0x0000860c       0x38 port.o
+                0x0000860c                vPortSetupTimerInterrupt
  .text.vPortYield
-                0x000085f8       0x18 port.o
-                0x000085f8                vPortYield
+                0x00008644       0x18 port.o
+                0x00008644                vPortYield
  .text.vPortEnterCritical
-                0x00008610       0x1a port.o
-                0x00008610                vPortEnterCritical
+                0x0000865c       0x1a port.o
+                0x0000865c                vPortEnterCritical
  .text.vPortExitCritical
-                0x0000862a       0x26 port.o
-                0x0000862a                vPortExitCritical
+                0x00008676       0x26 port.o
+                0x00008676                vPortExitCritical
  .text.SysTick_Handler
-                0x00008650       0x36 port.o
-                0x00008650                SysTick_Handler
+                0x0000869c       0x36 port.o
+                0x0000869c                SysTick_Handler
  .text.vPortSVCHandler_C
-                0x00008686       0x78 port.o
-                0x00008686                vPortSVCHandler_C
+                0x000086d2       0x78 port.o
+                0x000086d2                vPortSVCHandler_C
  .text.pxPortInitialiseStack
-                0x000086fe       0xc6 port.o
-                0x000086fe                pxPortInitialiseStack
+                0x0000874a       0xc6 port.o
+                0x0000874a                pxPortInitialiseStack
  .text.xPortStartScheduler
-                0x000087c4       0x56 port.o
-                0x000087c4                xPortStartScheduler
- *fill*         0x0000881a        0x6 
+                0x00008810       0x56 port.o
+                0x00008810                xPortStartScheduler
+ *fill*         0x00008866        0xa 
  .text.vRestoreContextOfFirstTask
-                0x00008820       0x38 portasm.o
-                0x00008820                vRestoreContextOfFirstTask
- *fill*         0x00008858        0x8 
+                0x00008870       0x38 portasm.o
+                0x00008870                vRestoreContextOfFirstTask
+ *fill*         0x000088a8        0x8 
  .text.vStartFirstTask
-                0x00008860       0x24 portasm.o
-                0x00008860                vStartFirstTask
+                0x000088b0       0x24 portasm.o
+                0x000088b0                vStartFirstTask
  .text.ulSetInterruptMask
-                0x00008884        0x8 portasm.o
-                0x00008884                ulSetInterruptMask
+                0x000088d4        0x8 portasm.o
+                0x000088d4                ulSetInterruptMask
  .text.vClearInterruptMask
-                0x0000888c        0x6 portasm.o
-                0x0000888c                vClearInterruptMask
- *fill*         0x00008892        0xe 
+                0x000088dc        0x6 portasm.o
+                0x000088dc                vClearInterruptMask
+ *fill*         0x000088e2        0xe 
  .text.PendSV_Handler
-                0x000088a0       0x98 portasm.o
-                0x000088a0                PendSV_Handler
- *fill*         0x00008938        0x8 
+                0x000088f0       0x98 portasm.o
+                0x000088f0                PendSV_Handler
+ *fill*         0x00008988        0x8 
  .text.SVCall_Handler
-                0x00008940       0x24 portasm.o
-                0x00008940                SVCall_Handler
+                0x00008990       0x24 portasm.o
+                0x00008990                SVCall_Handler
  .text.vPortAllocateSecureContext
-                0x00008964        0x4 portasm.o
-                0x00008964                vPortAllocateSecureContext
+                0x000089b4        0x4 portasm.o
+                0x000089b4                vPortAllocateSecureContext
  .text.vPortFreeSecureContext
-                0x00008968        0xe portasm.o
-                0x00008968                vPortFreeSecureContext
+                0x000089b8        0xe portasm.o
+                0x000089b8                vPortFreeSecureContext
  .text.prvGetExpectedIdleTime
-                0x00008976       0x36 tasks.o
+                0x000089c6       0x36 tasks.o
  .text.prvResetNextTaskUnblockTime
-                0x000089ac       0x32 tasks.o
+                0x000089fc       0x32 tasks.o
  .text.prvInitialiseNewTask
-                0x000089de       0xba tasks.o
+                0x00008a2e       0xba tasks.o
  .text.prvAddNewTaskToReadyList
-                0x00008a98      0x14a tasks.o
+                0x00008ae8      0x14a tasks.o
  .text.prvDeleteTCB
-                0x00008be2       0x40 tasks.o
+                0x00008c32       0x40 tasks.o
  .text.xTaskCreateStatic
-                0x00008c22       0x56 tasks.o
-                0x00008c22                xTaskCreateStatic
+                0x00008c72       0x56 tasks.o
+                0x00008c72                xTaskCreateStatic
  .text.xTaskCreate
-                0x00008c78       0x76 tasks.o
-                0x00008c78                xTaskCreate
+                0x00008cc8       0x76 tasks.o
+                0x00008cc8                xTaskCreate
  .text.vTaskStartScheduler
-                0x00008cee       0x74 tasks.o
-                0x00008cee                vTaskStartScheduler
+                0x00008d3e       0x74 tasks.o
+                0x00008d3e                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00008d62       0x10 tasks.o
-                0x00008d62                vTaskSuspendAll
+                0x00008db2       0x10 tasks.o
+                0x00008db2                vTaskSuspendAll
  .text.xTaskIncrementTick
-                0x00008d72      0x148 tasks.o
-                0x00008d72                xTaskIncrementTick
+                0x00008dc2      0x148 tasks.o
+                0x00008dc2                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x00008eba      0x116 tasks.o
-                0x00008eba                xTaskResumeAll
+                0x00008f0a      0x116 tasks.o
+                0x00008f0a                xTaskResumeAll
  .text.prvIdleTask
-                0x00008fd0       0xc0 tasks.o
+                0x00009020       0xc0 tasks.o
  .text.vTaskSwitchContext
-                0x00009090      0x118 tasks.o
-                0x00009090                vTaskSwitchContext
+                0x000090e0      0x118 tasks.o
+                0x000090e0                vTaskSwitchContext
  .text.__libc_init_array
-                0x000091a8       0x50 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-init.o)
-                0x000091a8                __libc_init_array
- .text.memset   0x000091f8       0x10 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-memset.o)
-                0x000091f8                memset
+                0x000091f8       0x50 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-init.o)
+                0x000091f8                __libc_init_array
+ .text.memset   0x00009248       0x10 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-memset.o)
+                0x00009248                memset
  *(.glue_7t)
- .glue_7t       0x00009208        0x0 linker stubs
+ .glue_7t       0x00009258        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00009208        0x0 linker stubs
+ .glue_7        0x00009258        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00009208       0x1b main.o
- *fill*         0x00009223        0x1 
+                0x00009258        0xf main.o
+ *fill*         0x00009267        0x1 
  .rodata.str1.4
-                0x00009224       0x18 tasks.o
+                0x00009268       0x18 tasks.o
                                  0x17 (size before relaxing)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000923c                . = ALIGN (0x4)
+                0x00009280                . = ALIGN (0x4)
  *(.init)
- .init          0x0000923c        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crti.o
-                0x0000923c                _init
- .init          0x00009240        0x8 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtn.o
-                0x00009248                . = ALIGN (0x4)
-                0x00009248                __preinit_array_start = .
+ .init          0x00009280        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crti.o
+                0x00009280                _init
+ .init          0x00009284        0x8 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtn.o
+                0x0000928c                . = ALIGN (0x4)
+                0x0000928c                __preinit_array_start = .
  *(.preinit_array)
-                0x00009248                __preinit_array_end = .
-                0x00009248                . = ALIGN (0x4)
-                0x00009248                __init_array_start = .
+                0x0000928c                __preinit_array_end = .
+                0x0000928c                . = ALIGN (0x4)
+                0x0000928c                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00009248        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
-                0x0000924c                __init_array_end = .
-                0x0000924c                . = ALIGN (0x4)
+ .init_array    0x0000928c        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+                0x00009290                __init_array_end = .
+                0x00009290                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x0000924c                . = ALIGN (0x4)
+                0x00009290                . = ALIGN (0x4)
  *(.fini)
- .fini          0x0000924c        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crti.o
-                0x0000924c                _fini
- .fini          0x00009250        0x8 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtn.o
-                0x00009258                . = ALIGN (0x4)
-                0x00009258                __fini_array_start = .
+ .fini          0x00009290        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crti.o
+                0x00009290                _fini
+ .fini          0x00009294        0x8 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtn.o
+                0x0000929c                . = ALIGN (0x4)
+                0x0000929c                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00009258        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+ .fini_array    0x0000929c        0x4 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
  *(SORT(.fini_array.*))
-                0x0000925c                __fini_array_end = .
+                0x000092a0                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x0000925c                . = ALIGN (0x4)
-                0x0000925c                _efixed = .
+                0x000092a0                . = ALIGN (0x4)
+                0x000092a0                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x0000925c        0x0
- .vfp11_veneer  0x0000925c        0x0 linker stubs
+.vfp11_veneer   0x000092a0        0x0
+ .vfp11_veneer  0x000092a0        0x0 linker stubs
 
-.v4_bx          0x0000925c        0x0
- .v4_bx         0x0000925c        0x0 linker stubs
+.v4_bx          0x000092a0        0x0
+ .v4_bx         0x000092a0        0x0 linker stubs
 
-.iplt           0x0000925c        0x0
- .iplt          0x0000925c        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+.iplt           0x000092a0        0x0
+ .iplt          0x000092a0        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
 
-.eh_frame       0x0000925c        0x0
- .eh_frame      0x0000925c        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+.eh_frame       0x000092a0        0x0
+ .eh_frame      0x000092a0        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
 
-.rel.dyn        0x0000925c        0x0
- .rel.iplt      0x0000925c        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+.rel.dyn        0x000092a0        0x0
+ .rel.iplt      0x000092a0        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
 
-.jcr            0x0000925c        0x0
- .jcr           0x0000925c        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+.jcr            0x000092a0        0x0
+ .jcr           0x000092a0        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
 
-.igot.plt       0x0000925c        0x0
- .igot.plt      0x0000925c        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
+.igot.plt       0x000092a0        0x0
+ .igot.plt      0x000092a0        0x0 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
                 [!provide]                PROVIDE (__exidx_end, .)
-                0x0000925c                . = ALIGN (0x4)
-                0x0000925c                _etext = .
+                0x000092a0                . = ALIGN (0x4)
+                0x000092a0                _etext = .
 
-.relocate       0x20002000        0x8 load address 0x0000925c
+.relocate       0x20002000        0x8 load address 0x000092a0
                 0x20002000                . = ALIGN (0x4)
                 0x20002000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -6391,42 +6392,42 @@ LOAD d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none
                 0x20002008                . = ALIGN (0x4)
                 0x20002008                _erelocate = .
 
-.bss            0x20002020     0x1204 load address 0x00009280
+.bss            0x20002020     0x1604 load address 0x000092c0
                 0x20002020                . = ALIGN (0x4)
                 0x20002020                _sbss = .
                 0x20002020                _szero = .
  *(.bss .bss.*)
  .bss           0x20002020       0x1c d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v8-m.base/crtbegin.o
  .bss           0x2000203c        0x4 hal/src/hal_delay.o
- .bss           0x20002040      0xc20 heap_4.o
- .bss           0x20002c60      0x4c0 main.o
- .bss           0x20003120        0x4 port.o
-                0x20003120                xSecureContext
- .bss           0x20003124      0x100 tasks.o
-                0x20003128                pxCurrentTCB
+ .bss           0x20002040     0x1020 heap_4.o
+ .bss           0x20003060      0x4c0 main.o
+ .bss           0x20003520        0x4 port.o
+                0x20003520                xSecureContext
+ .bss           0x20003524      0x100 tasks.o
+                0x20003528                pxCurrentTCB
  *(COMMON)
-                0x20003224                . = ALIGN (0x4)
-                0x20003224                _ebss = .
-                0x20003224                _ezero = .
+                0x20003624                . = ALIGN (0x4)
+                0x20003624                _ebss = .
+                0x20003624                _ezero = .
 
-.heap           0x20003224      0x204 load address 0x0000a484
-                0x20003228                . = ALIGN (0x8)
- *fill*         0x20003224        0x4 
-                0x20003228                _sheap = .
-                0x20003428                . = (. + HEAP_SIZE)
- *fill*         0x20003228      0x200 
-                0x20003428                . = ALIGN (0x8)
-                0x20003428                _eheap = .
-
-.stack          0x20003428      0x400 load address 0x0000a688
-                0x20003428                . = ALIGN (0x8)
-                0x20003428                _sstack = .
-                0x20003828                . = (. + STACK_SIZE)
- *fill*         0x20003428      0x400 
+.heap           0x20003624      0x204 load address 0x0000a8c4
+                0x20003628                . = ALIGN (0x8)
+ *fill*         0x20003624        0x4 
+                0x20003628                _sheap = .
+                0x20003828                . = (. + HEAP_SIZE)
+ *fill*         0x20003628      0x200 
                 0x20003828                . = ALIGN (0x8)
-                0x20003828                _estack = .
-                0x20003828                . = ALIGN (0x4)
-                0x20003828                _end = .
+                0x20003828                _eheap = .
+
+.stack          0x20003828      0x400 load address 0x0000aac8
+                0x20003828                . = ALIGN (0x8)
+                0x20003828                _sstack = .
+                0x20003c28                . = (. + STACK_SIZE)
+ *fill*         0x20003828      0x400 
+                0x20003c28                . = ALIGN (0x8)
+                0x20003c28                _estack = .
+                0x20003c28                . = ALIGN (0x4)
+                0x20003c28                _end = .
                 0x20003fff                _ram_end_ = ((ORIGIN (ram) + LENGTH (ram)) - 0x1)
 OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
 
@@ -6482,7 +6483,7 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .comment       0x00000059       0x5a portasm.o
  .comment       0x00000059       0x5a tasks.o
 
-.debug_info     0x00000000     0x6b7b
+.debug_info     0x00000000     0x6c98
  .debug_info    0x00000000       0xcf atmel_start.o
  .debug_info    0x000000cf      0x5f4 Device_Startup/startup_saml11e16a.o
  .debug_info    0x000006c3       0xd5 Device_Startup/system_saml11e16a.o
@@ -6491,12 +6492,12 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_info    0x00000a73      0xe2d heap_4.o
  .debug_info    0x000018a0      0x8db hpl/core/hpl_core_m23_base.o
  .debug_info    0x0000217b      0xbe9 list.o
- .debug_info    0x00002d64      0x537 main.o
- .debug_info    0x0000329b      0x437 port.o
- .debug_info    0x000036d2      0x1d9 portasm.o
- .debug_info    0x000038ab     0x32d0 tasks.o
+ .debug_info    0x00002d64      0x654 main.o
+ .debug_info    0x000033b8      0x437 port.o
+ .debug_info    0x000037ef      0x1d9 portasm.o
+ .debug_info    0x000039c8     0x32d0 tasks.o
 
-.debug_abbrev   0x00000000     0x13fd
+.debug_abbrev   0x00000000     0x1404
  .debug_abbrev  0x00000000       0x84 atmel_start.o
  .debug_abbrev  0x00000084      0x14f Device_Startup/startup_saml11e16a.o
  .debug_abbrev  0x000001d3       0x72 Device_Startup/system_saml11e16a.o
@@ -6505,12 +6506,12 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_abbrev  0x000003c3      0x300 heap_4.o
  .debug_abbrev  0x000006c3      0x2a8 hpl/core/hpl_core_m23_base.o
  .debug_abbrev  0x0000096b      0x221 list.o
- .debug_abbrev  0x00000b8c      0x1db main.o
- .debug_abbrev  0x00000d67      0x192 port.o
- .debug_abbrev  0x00000ef9       0xf2 portasm.o
- .debug_abbrev  0x00000feb      0x412 tasks.o
+ .debug_abbrev  0x00000b8c      0x1e2 main.o
+ .debug_abbrev  0x00000d6e      0x192 port.o
+ .debug_abbrev  0x00000f00       0xf2 portasm.o
+ .debug_abbrev  0x00000ff2      0x412 tasks.o
 
-.debug_loc      0x00000000     0x3322
+.debug_loc      0x00000000     0x336f
  .debug_loc     0x00000000       0x20 atmel_start.o
  .debug_loc     0x00000020       0x40 Device_Startup/startup_saml11e16a.o
  .debug_loc     0x00000060       0x21 driver_init.o
@@ -6518,11 +6519,11 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_loc     0x00000144      0x43e heap_4.o
  .debug_loc     0x00000582      0x1e3 hpl/core/hpl_core_m23_base.o
  .debug_loc     0x00000765       0x72 list.o
- .debug_loc     0x000007d7       0x79 main.o
- .debug_loc     0x00000850      0x468 port.o
- .debug_loc     0x00000cb8     0x266a tasks.o
+ .debug_loc     0x000007d7       0xc6 main.o
+ .debug_loc     0x0000089d      0x468 port.o
+ .debug_loc     0x00000d05     0x266a tasks.o
 
-.debug_aranges  0x00000000      0x4e8
+.debug_aranges  0x00000000      0x4f0
  .debug_aranges
                 0x00000000       0x20 atmel_start.o
  .debug_aranges
@@ -6540,15 +6541,15 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_aranges
                 0x000001a0       0x40 list.o
  .debug_aranges
-                0x000001e0       0x40 main.o
+                0x000001e0       0x48 main.o
  .debug_aranges
-                0x00000220       0x70 port.o
+                0x00000228       0x70 port.o
  .debug_aranges
-                0x00000290       0x70 portasm.o
+                0x00000298       0x70 portasm.o
  .debug_aranges
-                0x00000300      0x1e8 tasks.o
+                0x00000308      0x1e8 tasks.o
 
-.debug_ranges   0x00000000      0x5a8
+.debug_ranges   0x00000000      0x5b0
  .debug_ranges  0x00000000       0x10 atmel_start.o
  .debug_ranges  0x00000010       0x18 Device_Startup/startup_saml11e16a.o
  .debug_ranges  0x00000028       0x18 Device_Startup/system_saml11e16a.o
@@ -6557,10 +6558,10 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_ranges  0x00000080       0x40 heap_4.o
  .debug_ranges  0x000000c0       0x70 hpl/core/hpl_core_m23_base.o
  .debug_ranges  0x00000130       0x30 list.o
- .debug_ranges  0x00000160       0x30 main.o
- .debug_ranges  0x00000190       0x60 port.o
- .debug_ranges  0x000001f0       0x60 portasm.o
- .debug_ranges  0x00000250      0x358 tasks.o
+ .debug_ranges  0x00000160       0x38 main.o
+ .debug_ranges  0x00000198       0x60 port.o
+ .debug_ranges  0x000001f8       0x60 portasm.o
+ .debug_ranges  0x00000258      0x358 tasks.o
 
 .debug_macro    0x00000000    0x1722b
  .debug_macro   0x00000000      0x510 atmel_start.o
@@ -6708,7 +6709,7 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_macro   0x000171ff       0x10 tasks.o
  .debug_macro   0x0001720f       0x1c tasks.o
 
-.debug_line     0x00000000     0x5cfc
+.debug_line     0x00000000     0x5d1a
  .debug_line    0x00000000      0x998 atmel_start.o
  .debug_line    0x00000998      0x64c Device_Startup/startup_saml11e16a.o
  .debug_line    0x00000fe4      0x63d Device_Startup/system_saml11e16a.o
@@ -6717,12 +6718,12 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_line    0x000028e4      0x44b heap_4.o
  .debug_line    0x00002d2f      0xa74 hpl/core/hpl_core_m23_base.o
  .debug_line    0x000037a3      0x391 list.o
- .debug_line    0x00003b34      0xae7 main.o
- .debug_line    0x0000461b      0x3f4 port.o
- .debug_line    0x00004a0f      0x34a portasm.o
- .debug_line    0x00004d59      0xfa3 tasks.o
+ .debug_line    0x00003b34      0xb05 main.o
+ .debug_line    0x00004639      0x3f4 port.o
+ .debug_line    0x00004a2d      0x34a portasm.o
+ .debug_line    0x00004d77      0xfa3 tasks.o
 
-.debug_str      0x00000000    0x8bddc
+.debug_str      0x00000000    0x8bdd7
  .debug_str     0x00000000    0x7f85e atmel_start.o
                               0x7fd97 (size before relaxing)
  .debug_str     0x0007f85e      0x519 Device_Startup/startup_saml11e16a.o
@@ -6733,22 +6734,22 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
                               0x80276 (size before relaxing)
  .debug_str     0x000802cf       0xc1 hal/src/hal_delay.o
                               0x7f960 (size before relaxing)
- .debug_str     0x00080390     0x7283 heap_4.o
-                               0xaa2e (size before relaxing)
- .debug_str     0x00087613      0x479 hpl/core/hpl_core_m23_base.o
+ .debug_str     0x00080390     0x7282 heap_4.o
+                               0xaa2d (size before relaxing)
+ .debug_str     0x00087612      0x479 hpl/core/hpl_core_m23_base.o
                               0x80390 (size before relaxing)
- .debug_str     0x00087a8c      0x117 list.o
-                               0xa127 (size before relaxing)
- .debug_str     0x00087ba3      0x2f1 main.o
-                              0x84253 (size before relaxing)
- .debug_str     0x00087e94      0xf70 port.o
-                               0x8961 (size before relaxing)
- .debug_str     0x00088e04       0x8f portasm.o
-                               0x6c1c (size before relaxing)
- .debug_str     0x00088e93     0x2f49 tasks.o
-                               0xdaaa (size before relaxing)
+ .debug_str     0x00087a8b      0x117 list.o
+                               0xa126 (size before relaxing)
+ .debug_str     0x00087ba2      0x308 main.o
+                              0x84269 (size before relaxing)
+ .debug_str     0x00087eaa      0xf70 port.o
+                               0x8960 (size before relaxing)
+ .debug_str     0x00088e1a       0x74 portasm.o
+                               0x6c1b (size before relaxing)
+ .debug_str     0x00088e8e     0x2f49 tasks.o
+                               0xdaa9 (size before relaxing)
 
-.debug_frame    0x00000000      0xbb0
+.debug_frame    0x00000000      0xbcc
  .debug_frame   0x00000000       0x28 atmel_start.o
  .debug_frame   0x00000028       0x38 Device_Startup/startup_saml11e16a.o
  .debug_frame   0x00000060       0x30 Device_Startup/system_saml11e16a.o
@@ -6757,9 +6758,9 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_frame   0x00000128       0xb4 heap_4.o
  .debug_frame   0x000001dc       0xec hpl/core/hpl_core_m23_base.o
  .debug_frame   0x000002c8       0x6c list.o
- .debug_frame   0x00000334       0x7c main.o
- .debug_frame   0x000003b0       0xe8 port.o
- .debug_frame   0x00000498       0xc0 portasm.o
- .debug_frame   0x00000558      0x60c tasks.o
- .debug_frame   0x00000b64       0x2c d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-init.o)
- .debug_frame   0x00000b90       0x20 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000334       0x98 main.o
+ .debug_frame   0x000003cc       0xe8 port.o
+ .debug_frame   0x000004b4       0xc0 portasm.o
+ .debug_frame   0x00000574      0x60c tasks.o
+ .debug_frame   0x00000b80       0x2c d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00000bac       0x20 d:/atmel studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base\libc_nano.a(lib_a-memset.o)

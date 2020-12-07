@@ -56,13 +56,13 @@ int main(void)
 	 xTaskCreate( vTask1, /* Pointer to the function that implements the task. */
 	 "Task 1",/* Text name for the task. This is to facilitate
 	 debugging only. */
-	 100, /* Stack depth - small microcontrollers will use much
+	 400, /* Stack depth - small microcontrollers will use much
 	 less stack than this. */
 	 NULL, /* This example does not use the task parameter. */
 	 2, /* This task will run at priority 1. */
 	 NULL ); /* This example does not use the task handle. */
 	 /* Create the other task in exactly the same way and at the same priority. */
-	// xTaskCreate( vTask2, "Task 2", 100, NULL, 2, NULL );
+	 xTaskCreate( vTask2, "Task 2", 400, NULL, 2, NULL );
 	 /* Start the scheduler so the tasks start executing. */
 	 vTaskStartScheduler(); 
 	/* Replace with your application code */
@@ -78,9 +78,13 @@ int main(void)
 void vTask2( void *pvParameters ){
 	portALLOCATE_SECURE_CONTEXT( configMINIMAL_SECURE_STACK_SIZE );
 	const char* str="hello,lm task2\r\n";
+	uint32_t reuslt;
+	uint32_t test_module_id=0x1234;
+	uint32_t command_id=0x2;
+	uint32_t operation;
 	while(1){
-		
-		nsc_printf(str);
+		//nsc_printf(str);
+		reuslt=nsc_invoke_command(test_module_id,command_id,&operation);
 		delay_ms(1000);
 	}
 	return;
@@ -88,15 +92,16 @@ void vTask2( void *pvParameters ){
 
 
 void vTask1( void *pvParameters ){
-	//portALLOCATE_SECURE_CONTEXT( configMINIMAL_SECURE_STACK_SIZE );
+	portALLOCATE_SECURE_CONTEXT( configMINIMAL_SECURE_STACK_SIZE );
 	const char* str="hello,lm task1\r\n";
 	uint32_t reuslt;
 	uint32_t test_module_id=0x1234;
 	uint32_t command_id=0x1;
 	uint32_t operation;
-	reuslt=nsc_invoke_command(test_module_id,command_id,&operation);
+	
 	while(1){
-		nsc_printf(str);
+		reuslt=nsc_invoke_command(test_module_id,command_id,&operation);
+		//nsc_printf("hello,lm task1\r\n");
 		delay_ms(1000);
 	}
 	

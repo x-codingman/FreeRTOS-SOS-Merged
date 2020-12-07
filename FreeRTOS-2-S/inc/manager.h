@@ -44,7 +44,7 @@ SOS_Result_t check_paramaters(SOS_Operation_t *operation);
 SOS_Result_t add_module(SOS_ModuleEntry_t module_entry,SOS_ModuleID_t module_id,SOS_Manifest_t manifest);
 
 void call_module( uint32_t command_id,
-SOS_Operation_t *operation,Module_t* module_entry) __attribute__((naked));
+SOS_Operation_t *operation,Module_t* module, StackType_t *module_stack) __attribute__((naked));
 
 
 

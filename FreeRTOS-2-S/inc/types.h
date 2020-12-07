@@ -13,6 +13,22 @@
 
 
 
+// Rounding operations (efficient when n is a power of 2)
+// Round down to the nearest multiple of n	
+#define ROUNDDOWN(a, n)						\
+({								\
+	uint32_t __a = (uint32_t) (a);				\
+	(typeof(a)) (__a - __a % (n));				\
+})
+// Round up to the nearest multiple of n
+#define ROUNDUP(a, n)						\
+({								\
+	uint32_t __n = (uint32_t) (n);				\
+	(typeof(a)) (ROUNDDOWN((uint32_t) (a) + __n - 1, __n));	\
+})
+
+// Define doubleword bytes
+#define DOUBLEWORD 64    
 
 // define the secure os types
 
@@ -41,7 +57,7 @@ struct Trapframe {
     uint32_t control;
 	uint32_t module_return_address;
     uint32_t lr;
-	uint32_t xPSR;
+	uint32_t psp;
 	
 }__attribute__((packed));
 

@@ -22,8 +22,8 @@ kernel/manager.d kernel/manager.o: ../kernel/manager.c \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_intsup.h \
  d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_stdint.h \
  ../inc/SecureOSConfig.h ../inc/manager.h ../inc/module.h ../inc/types.h \
- ../kernel/sos_portasm.h ../kernel/sos_port.h ../inc/results.h \
- ../inc/memory.h
+ ../kernel/sos_portasm.h ../kernel/sos_port.h ../inc/types.h \
+ ../inc/results.h ../inc/memory.h
 
 d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
 
@@ -80,6 +80,8 @@ d:\atmel\ studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_
 ../kernel/sos_portasm.h:
 
 ../kernel/sos_port.h:
+
+../inc/types.h:
 
 ../inc/results.h:
 

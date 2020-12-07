@@ -13,7 +13,7 @@
  */
 #define INITIAL_XPSR					( 0x01000000 )
 #define MODULE_RETURN_ADDRESS           ( 0x00000000 ) 
-#define INITIAL_EXC_RETURN              ( 0xffffffbd )
+#define INITIAL_EXC_RETURN              ( 0xfffffffd )
 
 
 

@@ -15,7 +15,8 @@ static inline int32_t
 syscall(uint8_t num,uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4){
 	int32_t ret;
 	__asm volatile
-	(
+	(	
+		"	push {r4-r7}										\n"
 		"	mov r4, %2											\n"
 		"	mov r5, %3											\n"
 		"	mov r6, %4											\n"
@@ -25,6 +26,8 @@ syscall(uint8_t num,uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4){
 		"	push {r5}											\n"
 		"	push {r4}											\n"
 		"	svc %1												\n"
+		"	add sp, sp, #16										\n"
+		"	pop {r4-r7}											\n"
 		:"=r"(ret)
 		:"i"(num),"r"(a1),"r"(a2),"r"(a3),"r"(a4)
 		
@@ -32,12 +35,7 @@ syscall(uint8_t num,uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4){
 }
 
 void syscall_return(int ret){
-	__asm volatile
-	(
-		"	push {r0}											\n"
-		"	mov r0, #0x0										\n"
-		"	msr ipsr, r0										\n"
-	);
+
 	syscall(SYS_module_return,ret,3,4,9);
 }
 

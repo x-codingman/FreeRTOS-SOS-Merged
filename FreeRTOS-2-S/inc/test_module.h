@@ -12,7 +12,8 @@
 
 #define SOS_TEST_MOUDLE_ID 0x1234 
 
-#define CMD_PING 1 
+#define CMD_PING 1
+#define CMD_PONG 2 
 
 
 SOS_Result_t invoke_entry(uint32_t commandID,SOS_Operation_t  *operation) __attribute__ (( naked )) ;
