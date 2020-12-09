@@ -71,7 +71,9 @@ uint32_t ulPC;
 			index=call_moudle_frame_head->next;
 			while(index!=NULL){
 				if(index->cur_call_ID==call_ID_from_stack){
-					cur_call_moudle_frame=index;
+					// Assign the index to the global variable cur_call_module_frame. 
+					// We will free this frame structure in the sos_invoke_command function after the sos_return function.
+					cur_call_moudle_frame=index;						
 					sos_return( index);
 				}
 				index=index->next;
