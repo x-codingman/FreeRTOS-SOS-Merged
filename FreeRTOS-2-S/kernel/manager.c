@@ -18,6 +18,7 @@
 #include "types.h"
 #include "inc/results.h"
 #include "inc/memory.h"
+#include "cmsis_gcc.h"
 
 
 
@@ -35,7 +36,11 @@ struct CallModuleFrame head; 								// The head of the call_module_frame list, 
 struct CallModuleFrame* call_moudle_frame_head=&head;
 
 static uint32_t call_ID=1;                                  // this is used to generate the call_ID for each module calling
-                        
+          
+SOS_Result_t res= -SOS_ERROR_GENERIC;
+
+StackType_t *module_stack;    
+struct CallModuleFrame* cur_call_moudle_frame;          
 
 void init_stack(){
     kernel_stack_pointer=(StackType_t*) kernel_stack;
@@ -48,9 +53,10 @@ SOS_Result_t SOS_invoke_command(
     uint32_t command_id, 
     SOS_Operation_t *operation
 ){
-    SOS_Result_t res= -SOS_ERROR_GENERIC;
-    struct CallModuleFrame* cur_call_moudle_frame;
-    StackType_t *module_stack;
+    
+    
+    
+	
 
     //TODO:wait to implemented
     //check_paramaters(operation);
@@ -73,11 +79,11 @@ SOS_Result_t SOS_invoke_command(
             cur_call_moudle_frame->cur_call_ID=call_ID;
 			call_ID++;
 
-           
-            StackType_t module_stack_alloced = memory_alloc(SOS_MODULE_STACK_SIZE);
-		    module_stack=module_stack_alloced+SOS_MODULE_STACK_SIZE;
+			module_stack=(StackType_t*)__get_PSP();
+            //StackType_t module_stack_alloced = memory_alloc(SOS_MODULE_STACK_SIZE);
+		    //module_stack=module_stack_alloced+SOS_MODULE_STACK_SIZE;
 		    module_stack = ROUNDDOWN(module_stack,DOUBLEWORD);
-		    cur_call_moudle_frame->module_stack=module_stack_alloced;
+		    cur_call_moudle_frame->module_stack=module_stack;
 		   
            	// save the context of kernel 
 			__asm volatile(
@@ -101,7 +107,7 @@ SOS_Result_t SOS_invoke_command(
 					"	  orr r2, r2, r4								\n" // Make sure that the sys_call_return_label address is odd.(Thumb mode) 
 					"	  mov r4, lr									\n"	// r4 = lr
 					"	  mrs r5, psp									\n"
-					"	  stmia r3!, {r0-r2,r4-r5}						\n" /* Store MSP, CONTROL ,module_return_address and LR on the stack. */
+					"	  stmia r3!, {r0-r2,r4-r5}						\n" /* Store MSP, CONTROL, module_return_address, LR and PSP on the stack. */
 					"	  pop {r0-r5}									\n"	// restore r0-r3
 						::"r"(cur_call_moudle_frame)
 						:"memory"
@@ -117,7 +123,7 @@ SOS_Result_t SOS_invoke_command(
 				"	movs %0, r0 								\n"
 			:"=r"(res)
 			);
-			memory_free(module_stack_alloced);
+			//memory_free(module_stack_alloced);
 			call_module_list_remove(&cur_call_moudle_frame);
 			return res;
         }

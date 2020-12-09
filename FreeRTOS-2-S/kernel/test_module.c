@@ -25,6 +25,7 @@ SOS_Result_t invoke_entry(
         case CMD_PING:
         {
             printf("l m test module of ping\r\n");
+			delay_ms(5000);
             break;
 
         }

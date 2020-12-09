@@ -15,6 +15,7 @@
 #include "cmsis_gcc.h"
 
 extern struct CallModuleFrame* call_moudle_frame_head;
+extern struct CallModuleFrame* cur_call_moudle_frame;
 void sos_return(struct CallModuleFrame* index)__attribute__((naked));
 void vPortSVCHandler_C( uint32_t *pulCallerStackAddress ) /* PRIVILEGED_FUNCTION portDONT_DISCARD */
 {
@@ -70,7 +71,7 @@ uint32_t ulPC;
 			index=call_moudle_frame_head->next;
 			while(index!=NULL){
 				if(index->cur_call_ID==call_ID_from_stack){
-					
+					cur_call_moudle_frame=index;
 					sos_return( index);
 				}
 				index=index->next;

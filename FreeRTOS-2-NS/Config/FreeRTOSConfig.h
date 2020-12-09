@@ -62,7 +62,7 @@ extern uint32_t SystemCoreClock;
 /* Constants that describe the hardware and memory usage. */
 #define configCPU_CLOCK_HZ								SystemCoreClock
 #define configMINIMAL_STACK_SIZE						( ( uint16_t ) 128 )
-#define configMINIMAL_SECURE_STACK_SIZE					( 128 )
+#define configMINIMAL_SECURE_STACK_SIZE					( 1024 )
 #define configMAX_TASK_NAME_LEN							( 12 )
 #define configTOTAL_HEAP_SIZE							( ( size_t ) ( 4 * 1024 ) )
 

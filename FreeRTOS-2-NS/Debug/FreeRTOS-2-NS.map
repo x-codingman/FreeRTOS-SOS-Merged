@@ -6723,7 +6723,7 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
  .debug_line    0x00004a2d      0x34a portasm.o
  .debug_line    0x00004d77      0xfa3 tasks.o
 
-.debug_str      0x00000000    0x8bdd7
+.debug_str      0x00000000    0x8bdd8
  .debug_str     0x00000000    0x7f85e atmel_start.o
                               0x7fd97 (size before relaxing)
  .debug_str     0x0007f85e      0x519 Device_Startup/startup_saml11e16a.o
@@ -6734,20 +6734,20 @@ OUTPUT(FreeRTOS-2-NS.elf elf32-littlearm)
                               0x80276 (size before relaxing)
  .debug_str     0x000802cf       0xc1 hal/src/hal_delay.o
                               0x7f960 (size before relaxing)
- .debug_str     0x00080390     0x7282 heap_4.o
-                               0xaa2d (size before relaxing)
- .debug_str     0x00087612      0x479 hpl/core/hpl_core_m23_base.o
+ .debug_str     0x00080390     0x7283 heap_4.o
+                               0xaa2e (size before relaxing)
+ .debug_str     0x00087613      0x479 hpl/core/hpl_core_m23_base.o
                               0x80390 (size before relaxing)
- .debug_str     0x00087a8b      0x117 list.o
-                               0xa126 (size before relaxing)
- .debug_str     0x00087ba2      0x308 main.o
-                              0x84269 (size before relaxing)
- .debug_str     0x00087eaa      0xf70 port.o
-                               0x8960 (size before relaxing)
- .debug_str     0x00088e1a       0x74 portasm.o
-                               0x6c1b (size before relaxing)
- .debug_str     0x00088e8e     0x2f49 tasks.o
-                               0xdaa9 (size before relaxing)
+ .debug_str     0x00087a8c      0x117 list.o
+                               0xa127 (size before relaxing)
+ .debug_str     0x00087ba3      0x308 main.o
+                              0x8426a (size before relaxing)
+ .debug_str     0x00087eab      0xf70 port.o
+                               0x8961 (size before relaxing)
+ .debug_str     0x00088e1b       0x74 portasm.o
+                               0x6c1c (size before relaxing)
+ .debug_str     0x00088e8f     0x2f49 tasks.o
+                               0xdaaa (size before relaxing)
 
 .debug_frame    0x00000000      0xbcc
  .debug_frame   0x00000000       0x28 atmel_start.o
